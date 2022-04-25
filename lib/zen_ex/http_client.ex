@@ -56,7 +56,7 @@ defmodule ZenEx.HTTPClient do
     "https://#{get_env(:subdomain)}.zendesk.com#{endpoint}"
   end
 
-  def _build_entity(%_{} = res, [{key, [module]}]) do
+  def _build_entity(%{} = res, [{key, [module]}]) do
     {entities, page} =
       res.body
       |> Poison.decode!(keys: :atoms, as: %{key => [struct(module)]})
@@ -65,7 +65,7 @@ defmodule ZenEx.HTTPClient do
     struct(Collection, Map.merge(page, %{entities: entities, decode_as: [{key, [module]}]}))
   end
 
-  def _build_entity(%_{} = res, [{key, module}]) do
+  def _build_entity(%{} = res, [{key, module}]) do
     res.body |> Poison.decode!(keys: :atoms, as: %{key => struct(module)}) |> Map.get(key)
   end
 

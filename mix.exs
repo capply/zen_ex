@@ -51,7 +51,7 @@ defmodule ZenEx.Mixfile do
       {:earmark, "~> 1.4.3", only: :dev, runtime: false},
       {:espec, "~> 1.8.3", only: :test},
       {:ex_doc, "~> 0.22", only: :dev, runtime: false},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 4.0"},
       {:tesla, "~> 1.4.0"},
       {:hackney, "~> 1.10"},
       {:jason, ">= 1.0.0"}
